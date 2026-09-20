@@ -1,10 +1,10 @@
-=== WP Charts ===
+=== DataCharts ===
 Contributors: enrico-dev
 Tags: elementor, charts, graphs, diagram, widget, bar, line, pie
 Requires at least: 6.0
-Tested up to: 7.1.1
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Display beautiful, responsive charts (bar, line, pie, doughnut, polar area, rada
 
 == Description ==
 
-WP Charts adds a **Grafico / Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and WP Charts renders an interactive, responsive chart powered by Chart.js.
+DataCharts adds a **Grafico / Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and DataCharts renders an interactive, responsive chart powered by Chart.js.
 
 No coding required: mark up your data once, then choose from six chart types in a dropdown.
 
@@ -47,21 +47,21 @@ You can optionally override colors per dataset with `backgroundColor` and `borde
 
 = Getting started =
 
-1. Install and activate the plugin from **Plugins → Add New** (search "WP Charts") or upload the ZIP.
-2. Open your page in Elementor and search the widget panel for **"Grafico / Chart"** (category **WP Charts**).
+1. Install and activate the plugin from **Plugins → Add New** (search "DataCharts") or upload the ZIP.
+2. Open your page in Elementor and search the widget panel for **"Grafico / Chart"** (category **DataCharts**).
 3. Choose the chart type, paste your JSON data and adjust title, height and legend.
 4. Hit **Update** and preview your page.
 
 = Privacy =
 
-WP Charts does not collect, store, process or transmit any personal data. Chart.js is loaded from a public CDN (jsDelivr).
+DataCharts does not collect, store, process or transmit any personal data. Chart.js is loaded from a public CDN (jsDelivr).
 
 == Installation ==
 
 = Automatic installation =
 
 1. In your WordPress admin, go to **Plugins → Add New**.
-2. Search for **"WP Charts"**.
+2. Search for **"DataCharts"**.
 3. Click **Install Now** and then **Activate**.
 
 = Manual installation =
@@ -130,6 +130,14 @@ Yes. The widget works with any theme compatible with Elementor.
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix "Tested up to" to use the major/minor format required by wordpress.org checks.
+* Merge the Italian documentation into a single bilingual README to pass the automated review.
+
+= 1.0.1 =
+* Rename plugin to DataCharts to comply with the wordpress.org "WP" naming restriction.
+* Update text domain and all internal namespaces accordingly.
+
 = 1.0.0 =
 * Initial release.
 * Add Elementor widget "Chart" with 6 chart types (bar, line, pie, doughnut, polar area, radar).
@@ -138,6 +146,12 @@ Yes. The widget works with any theme compatible with Elementor.
 * Configurable title, legend and chart height.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Fix the readme to pass the automated plugin checks. No functional changes.
+
+= 1.0.1 =
+Rename to DataCharts to comply with the wordpress.org naming rules. Simply update: the widget settings are preserved.
 
 = 1.0.0 =
 Initial release.

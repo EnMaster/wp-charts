@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Charts uninstall handler.
+ * DataCharts uninstall handler.
  *
  * The plugin stores no options or data of its own: chart settings live inside
  * Elementor widget settings, which are page/post data owned by the site owner.

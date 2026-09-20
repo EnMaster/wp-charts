@@ -5,7 +5,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class WP_Charts_Widget extends \Elementor\Widget_Base {
+class DataCharts_Widget extends \Elementor\Widget_Base {
 
 	const PALETTE = array(
 		'#4e79a7',
@@ -21,11 +21,11 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 	);
 
 	public function get_name() {
-		return 'wp_charts_chart';
+		return 'datacharts_chart';
 	}
 
 	public function get_title() {
-		return __( 'Grafico', 'wp-charts' );
+		return __( 'Grafico', 'datacharts' );
 	}
 
 	public function get_icon() {
@@ -33,7 +33,7 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return array( 'wp-charts' );
+		return array( 'datacharts' );
 	}
 
 	public function get_keywords() {
@@ -44,7 +44,7 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			array(
-				'label' => __( 'Dati', 'wp-charts' ),
+				'label' => __( 'Dati', 'datacharts' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			)
 		);
@@ -52,15 +52,15 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_type',
 			array(
-				'label'   => __( 'Tipo di grafico', 'wp-charts' ),
+				'label'   => __( 'Tipo di grafico', 'datacharts' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => array(
-					'bar'        => __( 'Barre', 'wp-charts' ),
-					'line'       => __( 'Linea', 'wp-charts' ),
-					'pie'        => __( 'Torta', 'wp-charts' ),
-					'doughnut'   => __( 'Anello (Doughnut)', 'wp-charts' ),
-					'polarArea'  => __( 'Polar Area', 'wp-charts' ),
-					'radar'      => __( 'Radar', 'wp-charts' ),
+					'bar'        => __( 'Barre', 'datacharts' ),
+					'line'       => __( 'Linea', 'datacharts' ),
+					'pie'        => __( 'Torta', 'datacharts' ),
+					'doughnut'   => __( 'Anello (Doughnut)', 'datacharts' ),
+					'polarArea'  => __( 'Polar Area', 'datacharts' ),
+					'radar'      => __( 'Radar', 'datacharts' ),
 				),
 				'default' => 'bar',
 			)
@@ -69,29 +69,29 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_title',
 			array(
-				'label'       => __( 'Titolo', 'wp-charts' ),
+				'label'       => __( 'Titolo', 'datacharts' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => __( 'Es. Vendite 2025', 'wp-charts' ),
+				'placeholder' => __( 'Es. Vendite 2025', 'datacharts' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_data',
 			array(
-				'label'       => __( 'Dati (JSON)', 'wp-charts' ),
+				'label'       => __( 'Dati (JSON)', 'datacharts' ),
 				'type'        => \Elementor\Controls_Manager::CODE,
 				'language'    => 'json',
 				'rows'        => 14,
 				'default'     => $this->default_data(),
-				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'wp-charts' ),
+				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'datacharts' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_height',
 			array(
-				'label'      => __( 'Altezza (px)', 'wp-charts' ),
+				'label'      => __( 'Altezza (px)', 'datacharts' ),
 				'type'       => \Elementor\Controls_Manager::NUMBER,
 				'default'    => 350,
 				'min'        => 100,
@@ -104,7 +104,7 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'show_legend',
 			array(
-				'label'        => __( 'Mostra legenda', 'wp-charts' ),
+				'label'        => __( 'Mostra legenda', 'datacharts' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 			)
@@ -113,13 +113,13 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'legend_position',
 			array(
-				'label'     => __( 'Posizione legenda', 'wp-charts' ),
+				'label'     => __( 'Posizione legenda', 'datacharts' ),
 				'type'      => \Elementor\Controls_Manager::SELECT,
 				'options'   => array(
-					'top'    => __( 'Sopra', 'wp-charts' ),
-					'bottom' => __( 'Sotto', 'wp-charts' ),
-					'left'   => __( 'Sinistra', 'wp-charts' ),
-					'right'  => __( 'Destra', 'wp-charts' ),
+					'top'    => __( 'Sopra', 'datacharts' ),
+					'bottom' => __( 'Sotto', 'datacharts' ),
+					'left'   => __( 'Sinistra', 'datacharts' ),
+					'right'  => __( 'Destra', 'datacharts' ),
 				),
 				'default'   => 'top',
 				'condition' => array( 'show_legend' => 'yes' ),
@@ -136,18 +136,18 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 
 		if ( is_wp_error( $config ) ) {
 			printf(
-				'<div class="wp-charts-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
+				'<div class="datacharts-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
 				esc_html( $config->get_error_message() )
 			);
 			return;
 		}
 
-		wp_enqueue_script( 'wp-charts-chartjs' );
+		wp_enqueue_script( 'datacharts-chartjs' );
 
-		$chart_id = 'wp-chart-' . $this->get_id();
+		$chart_id = 'datachart-' . $this->get_id();
 
 		printf(
-			'<div class="wp-charts-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
+			'<div class="datacharts-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
 			absint( $settings['chart_height'] ),
 			esc_attr( $chart_id ),
 			esc_attr( $settings['chart_title'] )
@@ -156,11 +156,11 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 		<script>
 		(function () {
 			var canvas = document.getElementById(<?php echo wp_json_encode( $chart_id ); ?>);
-			if (!canvas || (window.WPChartsChartHandle && window.WPChartsChartHandle[<?php echo wp_json_encode( $chart_id ); ?>])) {
+			if (!canvas || (window.DataChartsGuard && window.DataChartsGuard[<?php echo wp_json_encode( $chart_id ); ?>])) {
 				return;
 			}
-			window.WPChartsChartHandle = window.WPChartsChartHandle || {};
-			window.WPChartsChartHandle[<?php echo wp_json_encode( $chart_id ); ?>] = true;
+			window.DataChartsGuard = window.DataChartsGuard || {};
+			window.DataChartsGuard[<?php echo wp_json_encode( $chart_id ); ?>] = true;
 			var config = <?php echo wp_json_encode( $config ); ?>;
 			new Chart(canvas.getContext('2d'), config);
 		})();
@@ -170,7 +170,7 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 
 	protected function content_template() {
 		?>
-		<div class="wp-charts-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
+		<div class="datacharts-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
 			<span style="color:#888;">{{ settings.chart_title }}</span>
 		</div>
 		<?php
@@ -182,7 +182,7 @@ class WP_Charts_Widget extends \Elementor\Widget_Base {
 
 		if ( ! is_array( $data ) || ! isset( $data['labels'] ) || ! is_array( $data['labels'] ) ||
 			! isset( $data['datasets'] ) || ! is_array( $data['datasets'] ) || empty( $data['datasets'] ) ) {
-			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'wp-charts' ) );
+			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'datacharts' ) );
 		}
 
 		$labels   = array_values( array_map( 'strval', $data['labels'] ) );

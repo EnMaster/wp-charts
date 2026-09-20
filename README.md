@@ -1,8 +1,19 @@
-# WP Charts
+# DataCharts
 
 > Display beautiful, responsive charts (bar, line, pie, doughnut, polar area, radar) built from JSON data, right inside your Elementor pages.
 
-**WP Charts** adds a **Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and the plugin renders an interactive, responsive chart powered by [Chart.js](https://www.chartjs.org/).
+> Crea grafici (barre, linea, torta, anello, polar area, radar) interattivi e responsive a partire da dati JSON, direttamente nelle tue pagine Elementor.
+
+**DataCharts** adds a **Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and the plugin renders an interactive, responsive chart powered by [Chart.js](https://www.chartjs.org/).
+
+**DataCharts** aggiunge un widget **Grafico** al page builder Elementor. Incolla i tuoi dati in formato JSON nelle impostazioni del widget, scegli il tipo di grafico e il plugin renderizza un grafico interattivo e responsive basato su [Chart.js](https://www.chartjs.org/).
+
+- [English](#english)
+- [Italiano](#italiano)
+
+---
+
+# English
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -13,8 +24,6 @@
 - [FAQ](#faq)
 - [Changelog](#changelog)
 - [License](#license)
-
----
 
 ## Requirements
 
@@ -27,7 +36,7 @@
 ### Automatic
 
 1. Go to **Plugins → Add New** in your WordPress admin.
-2. Search for **"WP Charts"**.
+2. Search for **"DataCharts"**.
 3. Click **Install Now**, then **Activate**.
 
 ### Manual
@@ -39,7 +48,7 @@
 ## Usage
 
 1. Open a page (or template) in the Elementor editor.
-2. Search the widget panel for **"Chart"** (or **"Grafico"**) — you'll find it in the **WP Charts** category.
+2. Search the widget panel for **"Chart"** (or **"Grafico"**) — you'll find it in the **DataCharts** category.
 3. Choose the **chart type** (Bar, Line, Pie, Doughnut, Polar Area, Radar).
 4. Paste your **JSON data** into the *Data (JSON)* field.
 5. Optionally set the **title**, **height** and **legend** options.
@@ -100,7 +109,7 @@ Invalid JSON never breaks the page — a clear error message is shown instead.
 
 ## Privacy
 
-WP Charts does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. The only external resource is the Chart.js library from the jsDelivr CDN.
+DataCharts does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. The only external resource is the Chart.js library from the jsDelivr CDN.
 
 ## FAQ
 
@@ -127,6 +136,16 @@ Any theme compatible with Elementor.
 
 ## Changelog
 
+### 1.0.2
+
+- Fix "Tested up to" to use the major/minor format required by wordpress.org checks.
+- Merged the Italian documentation into this single bilingual README.
+
+### 1.0.1
+
+- Renamed the plugin to DataCharts to comply with the wordpress.org naming rules.
+- Updated text domain and internal namespaces accordingly.
+
 ### 1.0.0
 
 - Initial release.
@@ -136,5 +155,152 @@ Any theme compatible with Elementor.
 - Configurable title, legend and chart height.
 
 ## License
+
+[GPL-2.0-or-later](./LICENSE.txt)
+
+---
+
+# Italiano
+
+- [Requisiti](#requisiti)
+- [Installazione](#installazione)
+- [Utilizzo](#utilizzo)
+- [Formato dei dati JSON](#formato-dei-dati-json)
+- [Opzioni](#opzioni)
+- [Privacy](#privacy)
+- [FAQ](#faq-1)
+- [Changelog](#changelog-1)
+- [Licenza](#licenza)
+
+## Requisiti
+
+- WordPress 6.0 o superiore
+- PHP 7.4 o superiore
+- **Elementor** (gratuito o Pro) installato e attivo
+
+## Installazione
+
+### Automatica
+
+1. Vai su **Plugin → Aggiungi nuovo** nella tua Area Admin WordPress.
+2. Cerca **"DataCharts"**.
+3. Clicca **Installa ora**, poi **Attiva**.
+
+### Manuale
+
+1. Scarica il file ZIP del plugin.
+2. Vai su **Plugin → Aggiungi nuovo → Carica plugin**.
+3. Carica il file ZIP e clicca **Installa ora**, poi **Attiva**.
+
+## Utilizzo
+
+1. Apri una pagina (o un modello) nell'editor di Elementor.
+2. Cerca nel pannello widget **"Grafico"** (o **"Chart"**) — lo trovi nella categoria **DataCharts**.
+3. Scegli il **tipo di grafico** (Barre, Linea, Torta, Anello, Polar Area, Radar).
+4. Incolla i tuoi **dati JSON** nel campo *Dati (JSON)*.
+5. Imposta facoltativamente **titolo**, **altezza** e **legenda**.
+6. Clicca **Aggiorna**: il grafico viene renderizzato nel frontend (e in anteprima nell'editor).
+
+## Formato dei dati JSON
+
+Il widget prevede un array `labels` e uno o più `datasets`:
+
+```json
+{
+  "labels": ["Gennaio", "Febbraio", "Marzo"],
+  "datasets": [
+    {
+      "label": "Vendite",
+      "data": [120, 190, 90]
+    },
+    {
+      "label": "Ordini",
+      "data": [80, 110, 130]
+    }
+  ]
+}
+```
+
+I grafici **torta**, **anello** e **polar area** usano solo il primo dataset; ogni fetta riceve automaticamente un colore diverso.
+
+### Colori personalizzati (opzionale)
+
+Puoi sovrascrivere la palette automatica per ogni dataset:
+
+```json
+{
+  "labels": ["Q1", "Q2", "Q3"],
+  "datasets": [
+    {
+      "label": "Ricavi",
+      "data": [150, 210, 180],
+      "backgroundColor": "#4e79a7",
+      "borderColor": "#2f4f6f"
+    }
+  ]
+}
+```
+
+Un JSON non valido non rompe mai la pagina: viene mostrato un messaggio di errore chiaro.
+
+## Opzioni
+
+| Opzione | Descrizione |
+| --- | --- |
+| Tipo di grafico | `bar` (barre), `line` (linea), `pie` (torta), `doughnut` (anello), `polarArea`, `radar` |
+| Titolo | Titolo facoltativo mostrato sopra il grafico |
+| Dati (JSON) | I dati del grafico nel formato descritto sopra |
+| Altezza (px) | Altezza della tela canvas, da 100 a 2000 px |
+| Mostra legenda | Mostra/nascondi la legenda |
+| Posizione legenda | `top` (sopra), `bottom` (sotto), `left` (sinistra), `right` (destra) |
+
+## Privacy
+
+DataCharts **non** raccoglie, memorizza, elabora o trasmette alcun dato personale. I tuoi JSON vengono incorporati direttamente nella pagina ed elaborati interamente lato client. L'unica risorsa esterna è la libreria Chart.js caricata dalla CDN jsDelivr.
+
+## FAQ
+
+**Che formato JSON prevede il widget?**
+Un array `labels` e un array `datasets` in cui ogni dataset ha un `label` (etichetta) e un array numerico `data`.
+
+**Quali tipi di grafico sono supportati?**
+Barre, Linea, Torta, Anello, Polar Area e Radar.
+
+**Posso personalizzare i colori?**
+Sì — aggiungi `backgroundColor` (e facoltativamente `borderColor`) a qualunque dataset.
+
+**Funziona nella anteprima dell'editor?**
+Sì, il grafico viene renderizzato in tempo reale durante la modifica.
+
+**Quale libreria renderizza i grafici?**
+Chart.js v4, caricata dalla CDN jsDelivr.
+
+**I miei dati vengono condivisi con terze parti?**
+No. Viene scaricata dalla CDN solo la libreria Chart.js; i tuoi dati non lasciano mai la pagina.
+
+**Funziona con qualsiasi tema?**
+Qualunque tema compatibile con Elementor.
+
+## Changelog
+
+### 1.0.2
+
+- Corretto "Tested up to" al formato maggiori/minori richiesto dai controlli di wordpress.org.
+- Documentazione italiana unificata in questo unico README bilingue.
+
+### 1.0.1
+
+- Rinomina del plugin in DataCharts per rispettare le regole di naming di wordpress.org.
+- Aggiornato il text domain e tutti i namespace interni di conseguenza.
+
+### 1.0.0
+
+- Versione iniziale.
+- Widget "Grafico" per Elementor con 6 tipi di grafico (barre, linea, torta, anello, polar area, radar).
+- Inserimento dati JSON con evidenziazione della sintassi e validazione.
+- Palette automatica di colori con override per singolo dataset.
+- Titolo, legenda e altezza configurabili.
+
+## Licenza
 
 [GPL-2.0-or-later](./LICENSE.txt)

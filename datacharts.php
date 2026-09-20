@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name:       WP Charts
+ * Plugin Name:       DataCharts
  * Description:       Display beautiful charts (bar, line, pie, doughnut, polar area, radar) from JSON data inside Elementor.
- * Version:           1.0.0
+ * Version:           1.0.2
  * Author:            enrico-dev
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wp-charts
+ * Text Domain:       datacharts
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -14,12 +14,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WP_CHARTS_VERSION', '1.0.0' );
-define( 'WP_CHARTS_PATH', plugin_dir_path( __FILE__ ) );
-define( 'WP_CHARTS_URL', plugin_dir_url( __FILE__ ) );
-define( 'WP_CHARTS_CHARTJS_VERSION', '4.4.1' );
+define( 'DATACHARTS_VERSION', '1.0.2' );
+define( 'DATACHARTS_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DATACHARTS_URL', plugin_dir_url( __FILE__ ) );
+define( 'DATACHARTS_CHARTJS_VERSION', '4.4.1' );
 
-final class WP_Charts {
+final class DataCharts {
 
 	private static $instance = null;
 
@@ -53,34 +53,34 @@ final class WP_Charts {
 
 		printf(
 			'<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
-			esc_html__( 'WP Charts richiede che Elementor sia installato e attivo.', 'wp-charts' )
+			esc_html__( 'DataCharts richiede che Elementor sia installato e attivo.', 'datacharts' )
 		);
 	}
 
 	public function register_assets() {
 		wp_register_script(
-			'wp-charts-chartjs',
-			'https://cdn.jsdelivr.net/npm/chart.js@' . WP_CHARTS_CHARTJS_VERSION . '/dist/chart.umd.min.js',
+			'datacharts-chartjs',
+			'https://cdn.jsdelivr.net/npm/chart.js@' . DATACHARTS_CHARTJS_VERSION . '/dist/chart.umd.min.js',
 			array(),
-			WP_CHARTS_CHARTJS_VERSION,
+			DATACHARTS_CHARTJS_VERSION,
 			true
 		);
 	}
 
 	public function register_widgets( $widgets_manager ) {
-		require_once WP_CHARTS_PATH . 'includes/class-wp-charts-widget.php';
-		$widgets_manager->register( new \WP_Charts_Widget() );
+		require_once DATACHARTS_PATH . 'includes/class-datacharts-widget.php';
+		$widgets_manager->register( new \DataCharts_Widget() );
 	}
 
 	public function register_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'wp-charts',
+			'datacharts',
 			array(
-				'title' => __( 'WP Charts', 'wp-charts' ),
+				'title' => __( 'DataCharts', 'datacharts' ),
 				'icon'  => 'fa fa-chart-pie',
 			)
 		);
 	}
 }
 
-WP_Charts::instance();
+DataCharts::instance();
