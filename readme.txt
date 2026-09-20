@@ -4,7 +4,7 @@ Tags: elementor, charts, graphs, diagram, widget, bar, line, pie
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,7 @@ You can optionally override colors per dataset with `backgroundColor` and `borde
 
 = Privacy =
 
-DataCharts does not collect, store, process or transmit any personal data. Chart.js is loaded from a public CDN (jsDelivr).
+DataCharts does not collect, store, process or transmit any personal data. Chart.js is bundled locally with the plugin, so no external resources are loaded.
 
 == Installation ==
 
@@ -111,11 +111,11 @@ Yes, the chart renders live in the editor preview, so you can see changes while 
 
 = Which libraries does it use? =
 
-The charts are powered by **Chart.js v4**, loaded from the jsDelivr CDN. Elementor itself is required.
+The charts are powered by **Chart.js v4**, bundled locally with the plugin. Elementor itself is required.
 
 = Is my data shared with third parties? =
 
-No. Your JSON is embedded in the page and rendered entirely client-side. The only external resource is the Chart.js script from the jsDelivr CDN.
+No. Your JSON is embedded in the page and rendered entirely client-side. Chart.js is bundled locally, so no external resource is loaded.
 
 = Does it work with any theme? =
 
@@ -129,6 +129,9 @@ Yes. The widget works with any theme compatible with Elementor.
 4. A line chart rendered on the frontend.
 
 == Changelog ==
+
+= 1.0.3 =
+* Bundle Chart.js locally instead of loading it from the jsDelivr CDN, to comply with the wordpress.org resource offloading rules.
 
 = 1.0.2 =
 * Fix "Tested up to" to use the major/minor format required by wordpress.org checks.
@@ -146,6 +149,9 @@ Yes. The widget works with any theme compatible with Elementor.
 * Configurable title, legend and chart height.
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Chart.js is now bundled locally. No functional changes, just update the plugin.
 
 = 1.0.2 =
 Fix the readme to pass the automated plugin checks. No functional changes.

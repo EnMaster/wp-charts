@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       DataCharts
  * Description:       Display beautiful charts (bar, line, pie, doughnut, polar area, radar) from JSON data inside Elementor.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            enrico-dev
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DATACHARTS_VERSION', '1.0.2' );
+define( 'DATACHARTS_VERSION', '1.0.3' );
 define( 'DATACHARTS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DATACHARTS_URL', plugin_dir_url( __FILE__ ) );
 define( 'DATACHARTS_CHARTJS_VERSION', '4.4.1' );
@@ -60,7 +60,7 @@ final class DataCharts {
 	public function register_assets() {
 		wp_register_script(
 			'datacharts-chartjs',
-			'https://cdn.jsdelivr.net/npm/chart.js@' . DATACHARTS_CHARTJS_VERSION . '/dist/chart.umd.min.js',
+			DATACHARTS_URL . 'assets/js/chart.umd.min.js',
 			array(),
 			DATACHARTS_CHARTJS_VERSION,
 			true

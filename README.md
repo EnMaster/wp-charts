@@ -109,7 +109,7 @@ Invalid JSON never breaks the page — a clear error message is shown instead.
 
 ## Privacy
 
-DataCharts does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. The only external resource is the Chart.js library from the jsDelivr CDN.
+DataCharts does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. Chart.js is bundled locally with the plugin — no external resources are loaded.
 
 ## FAQ
 
@@ -126,15 +126,19 @@ Yes — add `backgroundColor` (and optionally `borderColor`) to any dataset.
 Yes, the chart renders live while you edit.
 
 **Which library renders the charts?**
-Chart.js v4, loaded from the jsDelivr CDN.
+Chart.js v4, bundled locally with the plugin.
 
 **Is my data shared with third parties?**
-No. Only the Chart.js script is fetched from the CDN; your data never leaves the page.
+No. Everything runs locally on your site; your data never leaves the page.
 
 **Does it work with any theme?**
 Any theme compatible with Elementor.
 
 ## Changelog
+
+### 1.0.3
+
+- Chart.js is now bundled locally instead of being loaded from the jsDelivr CDN, complying with the wordpress.org resource offloading rules.
 
 ### 1.0.2
 
@@ -256,7 +260,7 @@ Un JSON non valido non rompe mai la pagina: viene mostrato un messaggio di error
 
 ## Privacy
 
-DataCharts **non** raccoglie, memorizza, elabora o trasmette alcun dato personale. I tuoi JSON vengono incorporati direttamente nella pagina ed elaborati interamente lato client. L'unica risorsa esterna è la libreria Chart.js caricata dalla CDN jsDelivr.
+DataCharts **non** raccoglie, memorizza, elabora o trasmette alcun dato personale. I tuoi JSON vengono incorporati direttamente nella pagina ed elaborati interamente lato client. Chart.js è incluso nel plugin — non viene caricata alcuna risorsa esterna.
 
 ## FAQ
 
@@ -273,15 +277,19 @@ Sì — aggiungi `backgroundColor` (e facoltativamente `borderColor`) a qualunqu
 Sì, il grafico viene renderizzato in tempo reale durante la modifica.
 
 **Quale libreria renderizza i grafici?**
-Chart.js v4, caricata dalla CDN jsDelivr.
+Chart.js v4, incluso localmente nel plugin.
 
 **I miei dati vengono condivisi con terze parti?**
-No. Viene scaricata dalla CDN solo la libreria Chart.js; i tuoi dati non lasciano mai la pagina.
+No. Tutto viene eseguito localmente sul tuo sito; i tuoi dati non lasciano mai la pagina.
 
 **Funziona con qualsiasi tema?**
 Qualunque tema compatibile con Elementor.
 
 ## Changelog
+
+### 1.0.3
+
+- Chart.js ora incluso localmente nel plugin invece di essere caricato dalla CDN jsDelivr, in conformità con le regole wordpress.org sul caricamento delle risorse.
 
 ### 1.0.2
 
