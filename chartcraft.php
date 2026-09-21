@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name:       DataCharts
+ * Plugin Name:       Chartcraft
  * Description:       Display beautiful charts (bar, line, pie, doughnut, polar area, radar) from JSON data inside Elementor.
- * Version:           1.0.3
- * Author:            enrico-dev
+ * Version:           1.0.4
+ * Author:            enricodev
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       datacharts
+ * Text Domain:       chartcraft
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -14,12 +14,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DATACHARTS_VERSION', '1.0.3' );
-define( 'DATACHARTS_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DATACHARTS_URL', plugin_dir_url( __FILE__ ) );
-define( 'DATACHARTS_CHARTJS_VERSION', '4.4.1' );
+define( 'CHARTCRAFT_VERSION', '1.0.4' );
+define( 'CHARTCRAFT_PATH', plugin_dir_path( __FILE__ ) );
+define( 'CHARTCRAFT_URL', plugin_dir_url( __FILE__ ) );
+define( 'CHARTCRAFT_CHARTJS_VERSION', '4.5.1' );
 
-final class DataCharts {
+final class Chartcraft {
 
 	private static $instance = null;
 
@@ -53,34 +53,34 @@ final class DataCharts {
 
 		printf(
 			'<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
-			esc_html__( 'DataCharts richiede che Elementor sia installato e attivo.', 'datacharts' )
+			esc_html__( 'Chartcraft richiede che Elementor sia installato e attivo.', 'chartcraft' )
 		);
 	}
 
 	public function register_assets() {
 		wp_register_script(
-			'datacharts-chartjs',
-			DATACHARTS_URL . 'assets/js/chart.umd.min.js',
+			'chartcraft-chartjs',
+			CHARTCRAFT_URL . 'assets/js/chart.umd.min.js',
 			array(),
-			DATACHARTS_CHARTJS_VERSION,
+			CHARTCRAFT_CHARTJS_VERSION,
 			true
 		);
 	}
 
 	public function register_widgets( $widgets_manager ) {
-		require_once DATACHARTS_PATH . 'includes/class-datacharts-widget.php';
-		$widgets_manager->register( new \DataCharts_Widget() );
+		require_once CHARTCRAFT_PATH . 'includes/class-chartcraft-widget.php';
+		$widgets_manager->register( new \Chartcraft_Widget() );
 	}
 
 	public function register_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'datacharts',
+			'chartcraft',
 			array(
-				'title' => __( 'DataCharts', 'datacharts' ),
+				'title' => __( 'Chartcraft', 'chartcraft' ),
 				'icon'  => 'fa fa-chart-pie',
 			)
 		);
 	}
 }
 
-DataCharts::instance();
+Chartcraft::instance();

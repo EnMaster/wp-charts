@@ -5,7 +5,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class DataCharts_Widget extends \Elementor\Widget_Base {
+class Chartcraft_Widget extends \Elementor\Widget_Base {
 
 	const PALETTE = array(
 		'#4e79a7',
@@ -21,11 +21,11 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 	);
 
 	public function get_name() {
-		return 'datacharts_chart';
+		return 'chartcraft_chart';
 	}
 
 	public function get_title() {
-		return __( 'Grafico', 'datacharts' );
+		return __( 'Grafico', 'chartcraft' );
 	}
 
 	public function get_icon() {
@@ -33,7 +33,7 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return array( 'datacharts' );
+		return array( 'chartcraft' );
 	}
 
 	public function get_keywords() {
@@ -44,7 +44,7 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			array(
-				'label' => __( 'Dati', 'datacharts' ),
+				'label' => __( 'Dati', 'chartcraft' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			)
 		);
@@ -52,15 +52,15 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_type',
 			array(
-				'label'   => __( 'Tipo di grafico', 'datacharts' ),
+				'label'   => __( 'Tipo di grafico', 'chartcraft' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => array(
-					'bar'        => __( 'Barre', 'datacharts' ),
-					'line'       => __( 'Linea', 'datacharts' ),
-					'pie'        => __( 'Torta', 'datacharts' ),
-					'doughnut'   => __( 'Anello (Doughnut)', 'datacharts' ),
-					'polarArea'  => __( 'Polar Area', 'datacharts' ),
-					'radar'      => __( 'Radar', 'datacharts' ),
+					'bar'        => __( 'Barre', 'chartcraft' ),
+					'line'       => __( 'Linea', 'chartcraft' ),
+					'pie'        => __( 'Torta', 'chartcraft' ),
+					'doughnut'   => __( 'Anello (Doughnut)', 'chartcraft' ),
+					'polarArea'  => __( 'Polar Area', 'chartcraft' ),
+					'radar'      => __( 'Radar', 'chartcraft' ),
 				),
 				'default' => 'bar',
 			)
@@ -69,29 +69,29 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_title',
 			array(
-				'label'       => __( 'Titolo', 'datacharts' ),
+				'label'       => __( 'Titolo', 'chartcraft' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => __( 'Es. Vendite 2025', 'datacharts' ),
+				'placeholder' => __( 'Es. Vendite 2025', 'chartcraft' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_data',
 			array(
-				'label'       => __( 'Dati (JSON)', 'datacharts' ),
+				'label'       => __( 'Dati (JSON)', 'chartcraft' ),
 				'type'        => \Elementor\Controls_Manager::CODE,
 				'language'    => 'json',
 				'rows'        => 14,
 				'default'     => $this->default_data(),
-				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'datacharts' ),
+				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'chartcraft' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_height',
 			array(
-				'label'      => __( 'Altezza (px)', 'datacharts' ),
+				'label'      => __( 'Altezza (px)', 'chartcraft' ),
 				'type'       => \Elementor\Controls_Manager::NUMBER,
 				'default'    => 350,
 				'min'        => 100,
@@ -104,7 +104,7 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'show_legend',
 			array(
-				'label'        => __( 'Mostra legenda', 'datacharts' ),
+				'label'        => __( 'Mostra legenda', 'chartcraft' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 			)
@@ -113,13 +113,13 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'legend_position',
 			array(
-				'label'     => __( 'Posizione legenda', 'datacharts' ),
+				'label'     => __( 'Posizione legenda', 'chartcraft' ),
 				'type'      => \Elementor\Controls_Manager::SELECT,
 				'options'   => array(
-					'top'    => __( 'Sopra', 'datacharts' ),
-					'bottom' => __( 'Sotto', 'datacharts' ),
-					'left'   => __( 'Sinistra', 'datacharts' ),
-					'right'  => __( 'Destra', 'datacharts' ),
+					'top'    => __( 'Sopra', 'chartcraft' ),
+					'bottom' => __( 'Sotto', 'chartcraft' ),
+					'left'   => __( 'Sinistra', 'chartcraft' ),
+					'right'  => __( 'Destra', 'chartcraft' ),
 				),
 				'default'   => 'top',
 				'condition' => array( 'show_legend' => 'yes' ),
@@ -136,41 +136,35 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 
 		if ( is_wp_error( $config ) ) {
 			printf(
-				'<div class="datacharts-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
+				'<div class="chartcraft-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
 				esc_html( $config->get_error_message() )
 			);
 			return;
 		}
 
-		wp_enqueue_script( 'datacharts-chartjs' );
+		wp_enqueue_script( 'chartcraft-chartjs' );
 
-		$chart_id = 'datachart-' . $this->get_id();
+		$chart_id = 'chartcraft-' . $this->get_id();
 
 		printf(
-			'<div class="datacharts-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
+			'<div class="chartcraft-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
 			absint( $settings['chart_height'] ),
 			esc_attr( $chart_id ),
 			esc_attr( $settings['chart_title'] )
 		);
-		?>
-		<script>
-		(function () {
-			var canvas = document.getElementById(<?php echo wp_json_encode( $chart_id ); ?>);
-			if (!canvas || (window.DataChartsGuard && window.DataChartsGuard[<?php echo wp_json_encode( $chart_id ); ?>])) {
-				return;
-			}
-			window.DataChartsGuard = window.DataChartsGuard || {};
-			window.DataChartsGuard[<?php echo wp_json_encode( $chart_id ); ?>] = true;
-			var config = <?php echo wp_json_encode( $config ); ?>;
-			new Chart(canvas.getContext('2d'), config);
-		})();
-		</script>
-		<?php
+
+		$inline_js = sprintf(
+			'(function(){var canvas=document.getElementById(%1$s);if(!canvas||(window.ChartcraftGuard&&window.ChartcraftGuard[%1$s])){return;}window.ChartcraftGuard=window.ChartcraftGuard||{};window.ChartcraftGuard[%1$s]=true;new Chart(canvas.getContext("2d"),%2$s);})();',
+			wp_json_encode( $chart_id ),
+			wp_json_encode( $config )
+		);
+
+		wp_add_inline_script( 'chartcraft-chartjs', $inline_js, 'after' );
 	}
 
 	protected function content_template() {
 		?>
-		<div class="datacharts-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
+		<div class="chartcraft-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
 			<span style="color:#888;">{{ settings.chart_title }}</span>
 		</div>
 		<?php
@@ -182,7 +176,7 @@ class DataCharts_Widget extends \Elementor\Widget_Base {
 
 		if ( ! is_array( $data ) || ! isset( $data['labels'] ) || ! is_array( $data['labels'] ) ||
 			! isset( $data['datasets'] ) || ! is_array( $data['datasets'] ) || empty( $data['datasets'] ) ) {
-			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'datacharts' ) );
+			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'chartcraft' ) );
 		}
 
 		$labels   = array_values( array_map( 'strval', $data['labels'] ) );

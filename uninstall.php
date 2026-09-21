@@ -1,6 +1,6 @@
 <?php
 /**
- * DataCharts uninstall handler.
+ * Chartcraft uninstall handler.
  *
  * The plugin stores no options or data of its own: chart settings live inside
  * Elementor widget settings, which are page/post data owned by the site owner.

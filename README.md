@@ -1,12 +1,16 @@
-# DataCharts
+# Chartcraft
 
 > Display beautiful, responsive charts (bar, line, pie, doughnut, polar area, radar) built from JSON data, right inside your Elementor pages.
 
 > Crea grafici (barre, linea, torta, anello, polar area, radar) interattivi e responsive a partire da dati JSON, direttamente nelle tue pagine Elementor.
 
-**DataCharts** adds a **Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and the plugin renders an interactive, responsive chart powered by [Chart.js](https://www.chartjs.org/).
+**Chartcraft** adds a **Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and the plugin renders an interactive, responsive chart powered by [Chart.js](https://www.chartjs.org/).
 
-**DataCharts** aggiunge un widget **Grafico** al page builder Elementor. Incolla i tuoi dati in formato JSON nelle impostazioni del widget, scegli il tipo di grafico e il plugin renderizza un grafico interattivo e responsive basato su [Chart.js](https://www.chartjs.org/).
+*Chartcraft is an independent plugin and is not affiliated with, endorsed by, or sponsored by Elementor.*
+
+**Chartcraft** aggiunge un widget **Grafico** al page builder Elementor. Incolla i tuoi dati in formato JSON nelle impostazioni del widget, scegli il tipo di grafico e il plugin renderizza un grafico interattivo e responsive basato su [Chart.js](https://www.chartjs.org/).
+
+*Chartcraft è un plugin indipendente e non è affiliato, approvato o sponsorizzato da Elementor.*
 
 - [English](#english)
 - [Italiano](#italiano)
@@ -36,7 +40,7 @@
 ### Automatic
 
 1. Go to **Plugins → Add New** in your WordPress admin.
-2. Search for **"DataCharts"**.
+2. Search for **"Chartcraft"**.
 3. Click **Install Now**, then **Activate**.
 
 ### Manual
@@ -48,7 +52,7 @@
 ## Usage
 
 1. Open a page (or template) in the Elementor editor.
-2. Search the widget panel for **"Chart"** (or **"Grafico"**) — you'll find it in the **DataCharts** category.
+2. Search the widget panel for **"Chart"** (or **"Grafico"**) — you'll find it in the **Chartcraft** category.
 3. Choose the **chart type** (Bar, Line, Pie, Doughnut, Polar Area, Radar).
 4. Paste your **JSON data** into the *Data (JSON)* field.
 5. Optionally set the **title**, **height** and **legend** options.
@@ -109,7 +113,7 @@ Invalid JSON never breaks the page — a clear error message is shown instead.
 
 ## Privacy
 
-DataCharts does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. Chart.js is bundled locally with the plugin — no external resources are loaded.
+Chartcraft does **not** collect, store, process or transmit any personal data. Your JSON is embedded directly in the page and rendered entirely client-side. Chart.js is bundled locally with the plugin — no external resources are loaded.
 
 ## FAQ
 
@@ -135,6 +139,11 @@ No. Everything runs locally on your site; your data never leaves the page.
 Any theme compatible with Elementor.
 
 ## Changelog
+
+### 1.0.4
+
+- Renamed the plugin to Chartcraft to make the name distinctive and avoid potential trademark conflicts.
+- Bundled the latest Chart.js (v4.5.1) and enqueued scripts with `wp_enqueue_scripts` / `wp_add_inline_script`.
 
 ### 1.0.3
 
@@ -187,7 +196,7 @@ Any theme compatible with Elementor.
 ### Automatica
 
 1. Vai su **Plugin → Aggiungi nuovo** nella tua Area Admin WordPress.
-2. Cerca **"DataCharts"**.
+2. Cerca **"Chartcraft"**.
 3. Clicca **Installa ora**, poi **Attiva**.
 
 ### Manuale
@@ -199,7 +208,7 @@ Any theme compatible with Elementor.
 ## Utilizzo
 
 1. Apri una pagina (o un modello) nell'editor di Elementor.
-2. Cerca nel pannello widget **"Grafico"** (o **"Chart"**) — lo trovi nella categoria **DataCharts**.
+2. Cerca nel pannello widget **"Grafico"** (o **"Chart"**) — lo trovi nella categoria **Chartcraft**.
 3. Scegli il **tipo di grafico** (Barre, Linea, Torta, Anello, Polar Area, Radar).
 4. Incolla i tuoi **dati JSON** nel campo *Dati (JSON)*.
 5. Imposta facoltativamente **titolo**, **altezza** e **legenda**.
@@ -260,7 +269,7 @@ Un JSON non valido non rompe mai la pagina: viene mostrato un messaggio di error
 
 ## Privacy
 
-DataCharts **non** raccoglie, memorizza, elabora o trasmette alcun dato personale. I tuoi JSON vengono incorporati direttamente nella pagina ed elaborati interamente lato client. Chart.js è incluso nel plugin — non viene caricata alcuna risorsa esterna.
+Chartcraft **non** raccoglie, memorizza, elabora o trasmette alcun dato personale. I tuoi JSON vengono incorporati direttamente nella pagina ed elaborati interamente lato client. Chart.js è incluso nel plugin — non viene caricata alcuna risorsa esterna.
 
 ## FAQ
 
@@ -286,6 +295,11 @@ No. Tutto viene eseguito localmente sul tuo sito; i tuoi dati non lasciano mai l
 Qualunque tema compatibile con Elementor.
 
 ## Changelog
+
+### 1.0.4
+
+- Rinomina del plugin in Chartcraft per rendere il nome distintivo ed evitare potenziali conflitti di marchio.
+- Inclusa l'ultima versione di Chart.js (v4.5.1) e script caricati con `wp_enqueue_scripts` / `wp_add_inline_script`.
 
 ### 1.0.3
 
