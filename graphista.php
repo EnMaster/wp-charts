@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name:       Chartcraft
+ * Plugin Name:       Graphista
  * Description:       Display beautiful charts (bar, line, pie, doughnut, polar area, radar) from JSON data inside Elementor.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            enricodev
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       chartcraft
+ * Text Domain:       graphista
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -14,12 +14,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CHARTCRAFT_VERSION', '1.0.4' );
-define( 'CHARTCRAFT_PATH', plugin_dir_path( __FILE__ ) );
-define( 'CHARTCRAFT_URL', plugin_dir_url( __FILE__ ) );
-define( 'CHARTCRAFT_CHARTJS_VERSION', '4.5.1' );
+define( 'GRAPHISTA_VERSION', '1.0.5' );
+define( 'GRAPHISTA_PATH', plugin_dir_path( __FILE__ ) );
+define( 'GRAPHISTA_URL', plugin_dir_url( __FILE__ ) );
+define( 'GRAPHISTA_CHARTJS_VERSION', '4.5.1' );
 
-final class Chartcraft {
+final class Graphista {
 
 	private static $instance = null;
 
@@ -53,34 +53,34 @@ final class Chartcraft {
 
 		printf(
 			'<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
-			esc_html__( 'Chartcraft richiede che Elementor sia installato e attivo.', 'chartcraft' )
+			esc_html__( 'Graphista richiede che Elementor sia installato e attivo.', 'graphista' )
 		);
 	}
 
 	public function register_assets() {
 		wp_register_script(
-			'chartcraft-chartjs',
-			CHARTCRAFT_URL . 'assets/js/chart.umd.min.js',
+			'graphista-chartjs',
+			GRAPHISTA_URL . 'assets/js/chart.umd.min.js',
 			array(),
-			CHARTCRAFT_CHARTJS_VERSION,
+			GRAPHISTA_CHARTJS_VERSION,
 			true
 		);
 	}
 
 	public function register_widgets( $widgets_manager ) {
-		require_once CHARTCRAFT_PATH . 'includes/class-chartcraft-widget.php';
-		$widgets_manager->register( new \Chartcraft_Widget() );
+		require_once GRAPHISTA_PATH . 'includes/class-graphista-widget.php';
+		$widgets_manager->register( new \Graphista_Widget() );
 	}
 
 	public function register_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'chartcraft',
+			'graphista',
 			array(
-				'title' => __( 'Chartcraft', 'chartcraft' ),
+				'title' => __( 'Graphista', 'graphista' ),
 				'icon'  => 'fa fa-chart-pie',
 			)
 		);
 	}
 }
 
-Chartcraft::instance();
+Graphista::instance();

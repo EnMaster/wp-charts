@@ -1,10 +1,10 @@
-=== Chartcraft ===
+=== Graphista ===
 Contributors: enricodev
 Tags: elementor, charts, graphs, diagram, widget
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,11 @@ Display beautiful, responsive charts (bar, line, pie, doughnut, polar area, rada
 
 == Description ==
 
-Chartcraft adds a **Grafico / Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and Chartcraft renders an interactive, responsive chart powered by Chart.js.
+Graphista adds a **Grafico / Chart** widget to the Elementor page builder. Paste your data as JSON in the widget settings, pick the chart type, and Graphista renders an interactive, responsive chart powered by Chart.js.
 
 No coding required: mark up your data once, then choose from six chart types in a dropdown.
 
-*Chartcraft is an independent plugin and is not affiliated with, endorsed by, or sponsored by Elementor.*
+*Graphista is an independent plugin and is not affiliated with, endorsed by, or sponsored by Elementor.*
 
 = Features =
 
@@ -49,21 +49,21 @@ You can optionally override colors per dataset with `backgroundColor` and `borde
 
 = Getting started =
 
-1. Install and activate the plugin from **Plugins → Add New** (search "Chartcraft") or upload the ZIP.
-2. Open your page in Elementor and search the widget panel for **"Grafico / Chart"** (category **Chartcraft**).
+1. Install and activate the plugin from **Plugins → Add New** (search "Graphista") or upload the ZIP.
+2. Open your page in Elementor and search the widget panel for **"Grafico / Chart"** (category **Graphista**).
 3. Choose the chart type, paste your JSON data and adjust title, height and legend.
 4. Hit **Update** and preview your page.
 
 = Privacy =
 
-Chartcraft does not collect, store, process or transmit any personal data. Chart.js is bundled locally with the plugin, so no external resources are loaded.
+Graphista does not collect, store, process or transmit any personal data. Chart.js is bundled locally with the plugin, so no external resources are loaded.
 
 == Installation ==
 
 = Automatic installation =
 
 1. In your WordPress admin, go to **Plugins → Add New**.
-2. Search for **"Chartcraft"**.
+2. Search for **"Graphista"**.
 3. Click **Install Now** and then **Activate**.
 
 = Manual installation =
@@ -132,6 +132,9 @@ Yes. The widget works with any theme compatible with Elementor.
 
 == Changelog ==
 
+= 1.0.5 =
+* Rename the plugin to Graphista, a distinctive name with no trademark conflicts.
+
 = 1.0.4 =
 * Rename the plugin to Chartcraft to make the name distinctive and avoid potential trademark conflicts.
 * Bundle the latest Chart.js (v4.5.1) and enqueue scripts with wp_enqueue_scripts / wp_add_inline_script.
@@ -155,6 +158,9 @@ Yes. The widget works with any theme compatible with Elementor.
 * Configurable title, legend and chart height.
 
 == Upgrade Notice ==
+
+= 1.0.5 =
+Renamed to Graphista. Simply update: the widget settings are preserved.
 
 = 1.0.4 =
 Renamed to Chartcraft and bundled the latest Chart.js. Simply update: the widget settings are preserved.

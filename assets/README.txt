@@ -1,4 +1,4 @@
-Chartcraft — Store assets (wordpress.org)
+Graphista — Store assets (wordpress.org)
 ========================================
 
 This folder is NOT part of the plugin ZIP. For the WordPress.org plugin

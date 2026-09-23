@@ -5,7 +5,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class Chartcraft_Widget extends \Elementor\Widget_Base {
+class Graphista_Widget extends \Elementor\Widget_Base {
 
 	const PALETTE = array(
 		'#4e79a7',
@@ -21,11 +21,11 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 	);
 
 	public function get_name() {
-		return 'chartcraft_chart';
+		return 'graphista_chart';
 	}
 
 	public function get_title() {
-		return __( 'Grafico', 'chartcraft' );
+		return __( 'Grafico', 'graphista' );
 	}
 
 	public function get_icon() {
@@ -33,7 +33,7 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return array( 'chartcraft' );
+		return array( 'graphista' );
 	}
 
 	public function get_keywords() {
@@ -44,7 +44,7 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			array(
-				'label' => __( 'Dati', 'chartcraft' ),
+				'label' => __( 'Dati', 'graphista' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			)
 		);
@@ -52,15 +52,15 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_type',
 			array(
-				'label'   => __( 'Tipo di grafico', 'chartcraft' ),
+				'label'   => __( 'Tipo di grafico', 'graphista' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'options' => array(
-					'bar'        => __( 'Barre', 'chartcraft' ),
-					'line'       => __( 'Linea', 'chartcraft' ),
-					'pie'        => __( 'Torta', 'chartcraft' ),
-					'doughnut'   => __( 'Anello (Doughnut)', 'chartcraft' ),
-					'polarArea'  => __( 'Polar Area', 'chartcraft' ),
-					'radar'      => __( 'Radar', 'chartcraft' ),
+					'bar'        => __( 'Barre', 'graphista' ),
+					'line'       => __( 'Linea', 'graphista' ),
+					'pie'        => __( 'Torta', 'graphista' ),
+					'doughnut'   => __( 'Anello (Doughnut)', 'graphista' ),
+					'polarArea'  => __( 'Polar Area', 'graphista' ),
+					'radar'      => __( 'Radar', 'graphista' ),
 				),
 				'default' => 'bar',
 			)
@@ -69,29 +69,29 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'chart_title',
 			array(
-				'label'       => __( 'Titolo', 'chartcraft' ),
+				'label'       => __( 'Titolo', 'graphista' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => '',
-				'placeholder' => __( 'Es. Vendite 2025', 'chartcraft' ),
+				'placeholder' => __( 'Es. Vendite 2025', 'graphista' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_data',
 			array(
-				'label'       => __( 'Dati (JSON)', 'chartcraft' ),
+				'label'       => __( 'Dati (JSON)', 'graphista' ),
 				'type'        => \Elementor\Controls_Manager::CODE,
 				'language'    => 'json',
 				'rows'        => 14,
 				'default'     => $this->default_data(),
-				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'chartcraft' ),
+				'description' => __( 'Incolla i dati in formato JSON: <code>{"labels": [...], "datasets": [{"label": "...", "data": [...]}]}</code>. Opzionale per dataset: <code>backgroundColor</code> e <code>borderColor</code>.', 'graphista' ),
 			)
 		);
 
 		$this->add_control(
 			'chart_height',
 			array(
-				'label'      => __( 'Altezza (px)', 'chartcraft' ),
+				'label'      => __( 'Altezza (px)', 'graphista' ),
 				'type'       => \Elementor\Controls_Manager::NUMBER,
 				'default'    => 350,
 				'min'        => 100,
@@ -104,7 +104,7 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'show_legend',
 			array(
-				'label'        => __( 'Mostra legenda', 'chartcraft' ),
+				'label'        => __( 'Mostra legenda', 'graphista' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 			)
@@ -113,13 +113,13 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'legend_position',
 			array(
-				'label'     => __( 'Posizione legenda', 'chartcraft' ),
+				'label'     => __( 'Posizione legenda', 'graphista' ),
 				'type'      => \Elementor\Controls_Manager::SELECT,
 				'options'   => array(
-					'top'    => __( 'Sopra', 'chartcraft' ),
-					'bottom' => __( 'Sotto', 'chartcraft' ),
-					'left'   => __( 'Sinistra', 'chartcraft' ),
-					'right'  => __( 'Destra', 'chartcraft' ),
+					'top'    => __( 'Sopra', 'graphista' ),
+					'bottom' => __( 'Sotto', 'graphista' ),
+					'left'   => __( 'Sinistra', 'graphista' ),
+					'right'  => __( 'Destra', 'graphista' ),
 				),
 				'default'   => 'top',
 				'condition' => array( 'show_legend' => 'yes' ),
@@ -136,35 +136,35 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 
 		if ( is_wp_error( $config ) ) {
 			printf(
-				'<div class="chartcraft-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
+				'<div class="graphista-error" style="padding:15px;border:1px solid #e15759;border-radius:4px;color:#a12b2b;background:#fdf3f2;">%s</div>',
 				esc_html( $config->get_error_message() )
 			);
 			return;
 		}
 
-		wp_enqueue_script( 'chartcraft-chartjs' );
+		wp_enqueue_script( 'graphista-chartjs' );
 
-		$chart_id = 'chartcraft-' . $this->get_id();
+		$chart_id = 'graphista-' . $this->get_id();
 
 		printf(
-			'<div class="chartcraft-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
+			'<div class="graphista-wrap" style="position:relative;height:%dpx;width:100%%;"><canvas id="%s" aria-label="%s"></canvas></div>',
 			absint( $settings['chart_height'] ),
 			esc_attr( $chart_id ),
 			esc_attr( $settings['chart_title'] )
 		);
 
 		$inline_js = sprintf(
-			'(function(){var canvas=document.getElementById(%1$s);if(!canvas||(window.ChartcraftGuard&&window.ChartcraftGuard[%1$s])){return;}window.ChartcraftGuard=window.ChartcraftGuard||{};window.ChartcraftGuard[%1$s]=true;new Chart(canvas.getContext("2d"),%2$s);})();',
+			'(function(){var canvas=document.getElementById(%1$s);if(!canvas||(window.GraphistaGuard&&window.GraphistaGuard[%1$s])){return;}window.GraphistaGuard=window.GraphistaGuard||{};window.GraphistaGuard[%1$s]=true;new Chart(canvas.getContext("2d"),%2$s);})();',
 			wp_json_encode( $chart_id ),
 			wp_json_encode( $config )
 		);
 
-		wp_add_inline_script( 'chartcraft-chartjs', $inline_js, 'after' );
+		wp_add_inline_script( 'graphista-chartjs', $inline_js, 'after' );
 	}
 
 	protected function content_template() {
 		?>
-		<div class="chartcraft-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
+		<div class="graphista-wrap" style="position:relative;height:350px;width:100%;display:flex;align-items:center;justify-content:center;background:#f7f7f7;border:1px dashed #d5d5d5;border-radius:4px;">
 			<span style="color:#888;">{{ settings.chart_title }}</span>
 		</div>
 		<?php
@@ -176,7 +176,7 @@ class Chartcraft_Widget extends \Elementor\Widget_Base {
 
 		if ( ! is_array( $data ) || ! isset( $data['labels'] ) || ! is_array( $data['labels'] ) ||
 			! isset( $data['datasets'] ) || ! is_array( $data['datasets'] ) || empty( $data['datasets'] ) ) {
-			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'chartcraft' ) );
+			return new WP_Error( 'invalid_json', __( 'JSON dei dati non valido. Formato atteso: {"labels": [...], "datasets": [{"label": "...", "data": [...]}]}', 'graphista' ) );
 		}
 
 		$labels   = array_values( array_map( 'strval', $data['labels'] ) );
